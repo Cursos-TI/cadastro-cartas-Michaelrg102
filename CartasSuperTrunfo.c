@@ -3,17 +3,14 @@
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das cartas
 // Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
+// Objetivo: No nível Aventureiro, você expandirá o sistema para incluir propriedades calculadas, permitindo uma análise mais detalhada das cartas.
 
-int main() {
+int main()
+{
   // Área para definição das variáveis para armazenar as propriedades das cidades
-  char estado1, estado2;
-  char codigo1[10], codigo2[10];
-  char cidade1[50], cidade2[50];
-  int populacao1, populacao2;
-  float area1, area2;
-  float pib1, pib2;
-  int pontos1, pontos2;
-  
+  char estado1, estado2, codigo1[10], codigo2[10], cidade1[50], cidade2[50];
+  int populacao1, populacao2, pontos1, pontos2;
+  float area1, area2, pib1, pib2, calculodensidade1, calculodensidade2, calculoPib1, calculoPib2;
 
   // Área para entrada de dados
   printf("Digite o Primeiro Estado: ");
@@ -39,7 +36,7 @@ int main() {
 
   printf("Digite a Segunda Populacao: ");
   scanf(" %d", &populacao2);
-  
+
   printf("Digite a Primeira Area: ");
   scanf(" %f", &area1);
 
@@ -57,14 +54,20 @@ int main() {
 
   printf("Digite os Pontos Turisticos da Carta 2: ");
   scanf(" %d", &pontos2);
-  
+
+  // Área para cálculos
+
+  calculodensidade1 = (float)populacao1 / area1;
+  calculodensidade2 = (float)populacao2 / area2;
+  calculoPib1 = (pib1 * 1000000000) / populacao1;
+  calculoPib2 = (pib2 * 1000000000) / populacao2;
 
   // Área para exibição dos dados da cidade
   printf("\nCarta 1:\n");
-  printf("Estado: %c\nCodigo: %s\nCidade: %s\nPopulacao: %d\nArea: %.2f\nPIB: %.2f\nPontos Turisticos: %d\n", estado1, codigo1, cidade1, populacao1, area1, pib1, pontos1);
+  printf("Estado: %c\nCodigo: %s\nCidade: %s\nPopulacao: %d\nArea: %.2f\nPIB: %.2f\nPontos Turisticos: %d\nDensidade Populacional: %.2f\nPIB per Capita: %.2f\n", estado1, codigo1, cidade1, populacao1, area1, pib1, pontos1, calculodensidade1, calculoPib1);
 
   printf("\nCarta 2:\n");
-  printf("Estado: %c\nCodigo: %s\nCidade: %s\nPopulacao: %d\nArea: %.2f\nPIB: %.2f\nPontos Turisticos: %d\n", estado2, codigo2, cidade2, populacao2, area2, pib2, pontos2);
+  printf("Estado: %c\nCodigo: %s\nCidade: %s\nPopulacao: %d\nArea: %.2f\nPIB: %.2f\nPontos Turisticos: %d\nDensidade Populacional: %.2f\nPIB per Capita: %.2f\n", estado2, codigo2, cidade2, populacao2, area2, pib2, pontos2, calculodensidade2, calculoPib2);
 
-return 0;
-} 
+  return 0;
+}
