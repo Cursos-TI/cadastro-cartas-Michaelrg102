@@ -3,14 +3,14 @@
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das cartas
 // Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
-// Objetivo: No nível Aventureiro, você expandirá o sistema para incluir propriedades calculadas, permitindo uma análise mais detalhada das cartas.
+// Objetivo: No nível Mestre, você implementará comparações entre as cartas, utilizando operadores relacionais e manipulando grandes números com precisão.
 
 int main()
 {
   // Área para definição das variáveis para armazenar as propriedades das cidades
   char estado1, estado2, codigo1[10], codigo2[10], cidade1[50], cidade2[50];
-  int populacao1, populacao2, pontos1, pontos2;
-  float area1, area2, pib1, pib2, calculodensidade1, calculodensidade2, calculoPib1, calculoPib2;
+  int populacao1, populacao2, pontos1, pontos2, resultado;
+  float area1, area2, pib1, pib2, calculodensidade1, calculodensidade2, calculoPib1, calculoPib2, superPoder1, superPoder2;
 
   // Área para entrada de dados
   printf("Digite o Primeiro Estado: ");
@@ -59,8 +59,12 @@ int main()
 
   calculodensidade1 = (float)populacao1 / area1;
   calculodensidade2 = (float)populacao2 / area2;
+
   calculoPib1 = (pib1 * 1000000000) / populacao1;
   calculoPib2 = (pib2 * 1000000000) / populacao2;
+
+  superPoder1 = populacao1 + area1 + pib1 + calculoPib1 + (area1 / populacao1);
+  superPoder2 = populacao2 + area2 + pib2 + calculoPib2 + (area2 / populacao2);
 
   // Área para exibição dos dados da cidade
   printf("\nCarta 1:\n");
@@ -69,5 +73,8 @@ int main()
   printf("\nCarta 2:\n");
   printf("Estado: %c\nCodigo: %s\nCidade: %s\nPopulacao: %d\nArea: %.2f\nPIB: %.2f\nPontos Turisticos: %d\nDensidade Populacional: %.2f\nPIB per Capita: %.2f\n", estado2, codigo2, cidade2, populacao2, area2, pib2, pontos2, calculodensidade2, calculoPib2);
 
+  resultado = populacao1 > populacao2;
+  
+  printf("\n%d", resultado);
   return 0;
 }
